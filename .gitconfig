@@ -1,0 +1,18 @@
+[alias]
+  co = checkout
+  ci = commit
+  st = status
+  br = branch
+  df = diff
+  hist = log --pretty=format:\"%h %ad | %s%d [%an]\" --graph --date=short
+  type = cat-file -t
+  dump = cat-file -p
+  cleanup = "!git branch --merged | grep  -v '\\*\\|master\\|develop' | xargs -n 1 git branch -d"
+  
+[user]
+	name = Nicolas Baptiste
+	email = nicolas.baptiste@gmail.com
+[http]
+	sslverify = false
+[core]
+	editor = subl -n -w
