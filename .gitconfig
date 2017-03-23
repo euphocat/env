@@ -5,6 +5,7 @@
   br = branch
   df = diff
   hist = log --pretty=format:\"%h %ad | %s%d [%an]\" --graph --date=short
+  compact-hist = "!git log --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --all"
   type = cat-file -t
   dump = cat-file -p
   cleanup = "!git branch --merged | grep  -v '\\*\\|master\\|develop' | xargs -n 1 git branch -d"
