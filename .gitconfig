@@ -7,13 +7,24 @@
   hist = log --pretty=format:\"%h %ad | %s%d [%an]\" --graph --date=short
   compact-hist = "!git log --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --all"
   type = cat-file -t
-  dump = cat-file -p
+  dump = cat-file -
+  gane = commit -a --amend --no-edit
+  ganef = "!git gane && git push -f"
   cleanup = "!git branch --merged | grep  -v '\\*\\|master\\|develop' | xargs -n 1 git branch -d"
-  
+
 [user]
 	name = Nicolas Baptiste
-	email = nicolas.baptiste@gmail.com
+	email = nicolas.baptiste@iadvize.com
 [http]
 	sslverify = false
 [core]
 	editor = subl -n -w
+[cola]
+	spellcheck = false
+[merge]
+    tool = meld
+[filter "lfs"]
+	clean = git-lfs clean -- %f
+	smudge = git-lfs smudge -- %f
+	process = git-lfs filter-process
+	required = true

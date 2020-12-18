@@ -1,5 +1,5 @@
 # Path to your oh-my-zsh installation.
-export ZSH=/home/nico/.oh-my-zsh
+export ZSH=~/.oh-my-zsh
 
 # Set name of the theme to load. Optionally, if you set this to "random"
 # it'll load a random theme each time that oh-my-zsh is loaded.
@@ -10,33 +10,33 @@ ZSH_THEME="agnoster"
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git)
+plugins=(git git-open jira)
 
 source $ZSH/oh-my-zsh.sh
 
 alias c=clear
 alias gti=git
 
+alias fast-admin="http-server /Users/nico/workspace/core-admin-app/www/admin -p 8000 --ssl --cert="/Users/nico/workspace/ssl/certificate" --key="/Users/nico/workspace/ssl/key" -g"
+
 eval "$(thefuck --alias)"
 
-export NVM_DIR="/home/nico/.nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm
 
-cd ~/workspace
+JIRA_URL=https://iadvize.atlassian.net/
 
 
-function proxy_on {
-	export HTTP_PROXY="http://proxy.tld:8080"
-	export HTTPS_PROXY="http://proxy.tld:8080"
-	export NO_PROXY=".isocel.info"
+export NVM_DIR="$HOME/.nvm"
+. "/usr/local/opt/nvm/nvm.sh"
 
-	echo "Proxy on with http://proxy.tld:8080"
-}
+alias desk="cd ~/workspace/core-desk-app/desk"
+alias admin="cd ~/workspace/core-admin-app/admin"
+alias fuil="cd ~/workspace/front-ui-library"
+alias ibbu="cd ~/workspace/ibbu-app"
+alias lfa="cd ~/workspace/livefeed-app"
+alias abb="cd ~/workspace/automation-bot-builder-app"
+alias cma=cmatrix
 
-function proxy_off {
-	unset HTTP_PROXY
-	unset HTTPS_PROXY
-	unset NO_PROXY
+alias ys="yarn storybook"
+alias ns="npm start"
 
-	echo "proxy off"
-}
+prompt_context() {}
